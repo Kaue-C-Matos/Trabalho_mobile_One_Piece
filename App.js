@@ -1,20 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { GluestackUIProvider, Text, Box, config, Center } from '@gluestack-ui/themed';
+import { SafeAreaView, StatusBar } from 'react-native';
+import Login from './src/screens/Login';
+import CharacterList from './src/screens/CharacterList';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <StatusBar/>
+      <GluestackUIProvider config={config.theme}>
+          <Login/>
+      </GluestackUIProvider>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

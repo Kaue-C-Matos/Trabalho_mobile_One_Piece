@@ -1,4 +1,4 @@
-import { Center, Text, Input, InputField, Image, Button, ButtonText, Alert, AlertIcon, AlertText, InfoIcon, Box, InputIcon, EyeIcon, EyeOffIcon, Icon, Switch, } from "@gluestack-ui/themed";
+import { Center, Text, Input, InputField, Image, Button, ButtonText, Box, Switch, } from "@gluestack-ui/themed";
 import { useState } from "react";
 import { ImageBackground } from "react-native";
 
@@ -12,7 +12,7 @@ const Login = ({ navigation }) => {
     const [switchValue, setSwitchValue] = useState(false)
 
     const validateUser = () =>{
-        if (user == "admin" && password == "senha123"){
+        if (user == "Admin" && password == "Senha123"){
             setValidUser(true)
         } else {
             setValidUser(false)

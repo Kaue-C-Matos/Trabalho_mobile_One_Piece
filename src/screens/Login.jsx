@@ -1,15 +1,18 @@
 import { Center, Text, Input, InputField, Image, Button, ButtonText, Box, Switch, } from "@gluestack-ui/themed";
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { ImageBackground } from "react-native";
 
 const bg = {uri: "https://i.pinimg.com/originals/61/89/21/61892182d2c104029a5c1a201f2b4afe.jpg"}
 const logo = {uri: "https://www.pngmart.com/files/13/One-Piece-Logo-PNG-Image.png"}
 
-const Login = ({ navigation }) => {
+const Login = () => {
     const [user, setUser] = useState()
     const [password, setPassword] = useState()
     const [validUser, setValidUser] = useState()
     const [switchValue, setSwitchValue] = useState(false)
+
+    const navigation = useNavigation()
 
     const validateUser = () =>{
         if (user == "Admin" && password == "Senha123"){

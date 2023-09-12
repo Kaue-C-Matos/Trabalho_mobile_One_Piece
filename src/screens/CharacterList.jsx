@@ -1,7 +1,7 @@
-import { Box, Button, ButtonText, Center, FlatList, HStack, Input, InputField, InputIcon, Pressable, SearchIcon, Text, } from "@gluestack-ui/themed";
+import { Box, Button, ButtonText, Center, FlatList, HStack, Input, InputField, Pressable, Text, } from "@gluestack-ui/themed";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ImageBackground, TouchableOpacity } from "react-native";
 
 const CharacterItem = ({character}) =>{
@@ -91,7 +91,7 @@ const CharacterList = () => {
         <ImageBackground source={bg} resizeMode="cover">
             <Center height="$full">
 
-                <HStack flexDirection="row">
+                <HStack flexDirection="row" >
                 <Input margin="$3" borderRadius="$md"  width="$56" bgColor="#fff" >
                     <InputField onChangeText={setSearch}/>
                 </Input>

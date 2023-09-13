@@ -1,6 +1,6 @@
-import { Center, Text, Input, InputField, Image, Button, ButtonText, Box, Switch, } from "@gluestack-ui/themed";
+import { Center, Text, Input, InputField, Image, Button, ButtonText, Switch, Alert, AlertText, } from "@gluestack-ui/themed";
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ImageBackground } from "react-native";
 
 const bg = {uri: "https://i.pinimg.com/originals/61/89/21/61892182d2c104029a5c1a201f2b4afe.jpg"}
@@ -26,6 +26,10 @@ const Login = () => {
         setSwitchValue(!switchValue)
     }
 
+    useEffect(()=>{
+        validateUser()
+    }, [user, password])
+
     return (
         
 
@@ -50,14 +54,16 @@ const Login = () => {
                     <Switch value={switchValue} onValueChange={changeSwitchValue} bgColor="#fff"/>
                 </Input>
 
-                {!validUser ? <Box bg='$yellow100' marginHorizontal="$12" marginVertical="$5">
-                    <Text color="red" bold italic  hardShadow="$5" padding="$1">Usuário ou senha incorretos, por favor revise suas credenciais</Text>
-                    </Box>
+                {!validUser ? <Alert mx="$2.5" action="error" variant="solid" width="$2/3" marginTop="$5">
+                        <AlertText>
+                            Usuário ou senha inválidos, por favor revise suas credenciais
+                        </AlertText>
+                    </Alert>
                  : <></>}
                 
 
                 <Button size="md" variant="solid" marginTop="$5" 
-                    onPress={() =>{validateUser(); 
+                    onPress={() =>{
                         if(validUser){
                             navigation.navigate("Characters")
                         }

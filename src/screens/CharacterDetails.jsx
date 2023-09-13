@@ -68,7 +68,10 @@ const CharacterDetails = () => {
                     }  
                   </VStack>
 
-                  <Text color='#422d2c' bold size='2xl' marginTop="$10">฿ {item.bounty}</Text>
+                  {item.bounty === "" ? 
+                    <Text color="#422d2c" bold size='2xl' marginTop="$10">Não procurado</Text> : 
+                    <Text color='#422d2c' bold size='2xl' marginTop="$10">฿ {item.bounty}</Text>
+                  }
                 </Box>
           </ImageBackground>
             </Box>

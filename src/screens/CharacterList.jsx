@@ -10,15 +10,12 @@ const CharacterItem = ({character}) =>{
         <Center>
             <Box marginVertical="$3" shadowColor="$black" hardShadow="5">
                 <ImageBackground source={itembg} resizeMode="stretch">
-                    <TouchableOpacity>
-                        <Pressable borderWidth="$2" alignItems="center" w="$96" h="$32" justifyContent="center" onPress={()=>navigation.navigate('Details', {character: character.french_name})}>
-                            <Text size="3xl" color="#422d2c" margin="$3" bold>{character.french_name}</Text>
-                            {character.bounty === "" ? 
-                            <Text color="#422d2c">Não procurado</Text> : 
-                            <Text color="#422d2c">฿ {character.bounty}</Text>}
-                        </Pressable>
-
-                    </TouchableOpacity>
+                    <Pressable borderWidth="$2" alignItems="center" w="$96" h="$32" justifyContent="center" onPress={()=>navigation.navigate('Details', {character: character.french_name})}>
+                        <Text size="3xl" color="#422d2c" margin="$3" bold>{character.french_name}</Text>
+                        {character.bounty === "" ? 
+                        <Text color="#422d2c">Não procurado</Text> : 
+                        <Text color="#422d2c">฿ {character.bounty}</Text>}
+                    </Pressable>
                 </ImageBackground>
             </Box>
         </Center>
@@ -28,7 +25,7 @@ const CharacterItem = ({character}) =>{
 const itembg={uri: "https://img.freepik.com/free-photo/wooden-floor-background_53876-88628.jpg?w=2000"}
 const bg={uri: "https://c1.wallpaperflare.com/preview/580/801/155/wall-brick-old-red-brocken-cracks.jpg"}
 
-const CharacterList = () => {
+const CharacterList = ({}) => {
     const [allCharacters, setAllCharacters] = useState([])
     const [search, setSearch] = useState()
     const [currentPage, setCurrentPage] = useState(1)
@@ -99,7 +96,7 @@ const CharacterList = () => {
                     <ButtonText>Pesquisar</ButtonText>
                 </Button>
                 </HStack>
-
+                
                 <FlatList 
                     data={charactersToShow}
                     renderItem={({item}) => 
